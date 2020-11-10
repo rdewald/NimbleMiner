@@ -1,0 +1,12 @@
+name: nimbleminer
+title: NimbleMiner
+username: rdewald
+account: rdewald
+server: analyw0301.vnsny.org
+hostUrl: http://analyw0301.vnsny.org:3939/__api__
+appId: 757
+bundleId: 6007
+url: http://analyw0301.vnsny.org:3939/content/757/
+when: 1605043948.27632
+asMultiple: FALSE
+asStatic: FALSE
