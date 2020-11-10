@@ -20,6 +20,19 @@ library(rword2vec)
 library(text2vec)
 library(tokenizers)
 library(NimbleMiner)
+#RDeWald 2020-11-10
+# Preparing to deploy document...DONE
+# Uploading bundle for document: 1...Error: Unable to retrieve package records for the following packages:
+#   - 'NimbleMiner'
+# In addition: Warning messages:
+#   1: The vignette title specified in \VignetteIndexEntry{} is different from the title in the YAML metadata. The former is "Vignette Title", and the latter is "Word2Vec Workshop". If that is intentional, you may set options(rmarkdown.html_vignette.check_title = FALSE) to suppress this check. 
+# 2: The vignette title specified in \VignetteIndexEntry{} is different from the title in the YAML metadata. The former is "Vignette Title", and the latter is "Word2Vec introduction". If that is intentional, you may set options(rmarkdown.html_vignette.check_title = FALSE) to suppress this check. 
+# 3: In FUN(X[[i]], ...) :
+#   Package 'NimbleMiner' not available in repository or locally
+# 4: In FUN(X[[i]], ...) :
+#   Failed to infer source for package 'tsne'; using latest available version on CRAN instead
+# Execution halted
+# options(rmarkdown.html_vignette.check_title = FALSE)
 
 # User interface
 ui <- fluidPage(

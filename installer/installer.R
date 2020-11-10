@@ -7,6 +7,7 @@ packageslInstallation <- function(names_of_packages){
 
 packages <- c("shiny", "stringi", "data.table", "DT", "shinythemes", "ggplot2", "keras", "readr", "shinyTree", "shinyjs", "tm", "xtable",
               "tau", "stopwords", "caret","fs","devtools")
+1
 packageslInstallation(packages)
 
 packages_dir <<- paste0(getSrcDirectory(function(x) {x}),"/");
