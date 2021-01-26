@@ -1,0 +1,12 @@
+name: nmdev
+title: nmdev
+username: rdewald
+account: rdewald
+server: stats.vnsny.org
+hostUrl: http://stats.vnsny.org:3939/__api__
+appId: 891
+bundleId: 6697
+url: http://stats.vnsny.org:3939/content/891/
+when: 1611697100.8021
+asMultiple: FALSE
+asStatic: FALSE

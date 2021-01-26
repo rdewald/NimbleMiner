@@ -12,3 +12,4 @@
 "31","mechanical_fall","Falls",TRUE,"<button type='button' class='btn btn-secondary load' onclick='Shiny.onInputChange(""lastClickSimilar_termId"",this.id);' id='next_examples_for_mechanical_fall#0'><i class='icon-left'></i>Examples</button>"
 "47","syncope","Falls",TRUE,"<button type='button' class='btn btn-secondary load' onclick='Shiny.onInputChange(""lastClickSimilar_termId"",this.id);' id='next_examples_for_syncope#0'><i class='icon-left'></i>Examples</button>"
 "26","left_sided_weakness","Falls",TRUE,"<button type='button' class='btn btn-secondary load' onclick='Shiny.onInputChange(""lastClickSimilar_termId"",this.id);' id='next_examples_for_left_sided_weakness#0'><i class='icon-left'></i>Examples</button>"
+"12","diabetes","Falls",FALSE,"<button type='button' class='btn btn-secondary load' onclick='Shiny.onInputChange(""lastClickId"",this.id);' id='next_examples_for_diabetes#0'><i class='icon-left'></i>Examples</button>"
