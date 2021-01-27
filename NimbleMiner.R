@@ -2,7 +2,6 @@
 # version: 0.52 (Models building, Search of similar terms, Negations (with exceptions), Irrelevant terms, Machine learning by SVM and LSTM)
 #####################################
 options(repos = c("https://cloud.r-project.org/", "https://datasci.vnsny.org/r-pkgs/"))
-
 library(shiny)
 library(stringi)
 library(data.table)
