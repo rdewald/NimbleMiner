@@ -1,7 +1,7 @@
 # NimbleMiner: a software that allows clinicians to interact with word embedding models (skip-gram models - word2vec by package wordVectors and GloVe) to rapidly create lexicons of similar terms.
 # version: 0.52 (Models building, Search of similar terms, Negations (with exceptions), Irrelevant terms, Machine learning by SVM and LSTM)
 #####################################
-
+options(repos = c("https://cloud.r-project.org/", "https://datasci.vnsny.org/r-pkgs/"))
 library(shiny)
 library(stringi)
 library(data.table)
@@ -9,17 +9,19 @@ library(DT)
 library(shinythemes)
 library(ggplot2)
 library(readr)
-library(wordVectors)
 library(shinyTree)
 library(shinyjs)
 library(RTextTools)
 library(tm)
 library(xtable)
 library(keras)
-library(rword2vec)
 library(text2vec)
 library(tokenizers)
-library(NimbleMiner)
+require(devtools)
+devtools::install_github("mukul13/rword2vec")
+devtools::install_github("bmschmidt/wordVectors")
+# necessary until nimbleMine is a public repository
+require(nimbleMine)
 
 # User interface
 ui <- fluidPage(
@@ -656,7 +658,7 @@ server <- function(input, output, session) {
     else if(n_grams==4)
       fileName <- paste0(app_dir,"train4.txt")
 
-    example_str <- NimbleMiner::getExamples(pattern, fileName, control_id, last_pos,direction,length_of_text_chunk)
+    example_str <-nimbleMine::getExamples(pattern, fileName, control_id, last_pos,direction,length_of_text_chunk)
 
     return (example_str)
   }
@@ -744,7 +746,7 @@ server <- function(input, output, session) {
         return(FALSE)
       }
 
-      df_simclins<<-NimbleMiner::addNewSimclin(new_simclin_str,df_simclins,category)
+      df_simclins<<-nimbleMine::addNewSimclin(new_simclin_str,df_simclins,category)
       #clean the input control
       if(!fl_from_file){
         updateTextInput(session,"newWord_input", value = " ")
@@ -1132,7 +1134,7 @@ server <- function(input, output, session) {
     fileName_clean <- paste0(app_dir,"train1.txt")
 
     if(input$buildModel_startStep_input == "TP")
-      NimbleMiner::TextPreprocess(fileName_in = fileName_source, fileName_out = fileName_clean)
+     nimbleMine::TextPreprocess(fileName_in = fileName_source, fileName_out = fileName_clean)
 
     if(!file.exists(fileName_clean) | file.info(fileName_clean)$size==0){
       showModal(modalDialog(title = "Error message",  paste0("The file for model training ",fileName_clean," was not found."),easyClose = TRUE))
@@ -1596,7 +1598,7 @@ server <- function(input, output, session) {
 
     if (nrow(df_new_simclins)>0) {
 
-      df_similar_terms_as_result = NimbleMiner::findNewSimilarTerms(df_new_simclins, category_str, models_files, similar_terms_count=input$setting_similar_terms_count,load_model_to_memory = (input$select_model_method==1))
+      df_similar_terms_as_result =nimbleMine::findNewSimilarTerms(df_new_simclins, category_str, models_files, similar_terms_count=input$setting_similar_terms_count,load_model_to_memory = (input$select_model_method==1))
       refreshTable('simclins')
 
       if(nrow(df_similar_terms_as_result)>0){
@@ -1776,7 +1778,7 @@ server <- function(input, output, session) {
 
     if (nrow(df_new_simclins)>0) {
 
-      df_similar_terms_as_result = NimbleMiner::findNewSimilarTerms(df_new_simclins, category_str, models_files, similar_terms_count=input$setting_similar_terms_count,load_model_to_memory = (input$select_model_method==1))
+      df_similar_terms_as_result =nimbleMine::findNewSimilarTerms(df_new_simclins, category_str, models_files, similar_terms_count=input$setting_similar_terms_count,load_model_to_memory = (input$select_model_method==1))
       refreshTable('simclins')
 
       if(nrow(df_similar_terms_as_result)>0){
