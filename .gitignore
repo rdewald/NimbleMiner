@@ -206,6 +206,7 @@ htmlcov/
 # REPOSITORY-specific files to NOT ignore
 # These are safe files, with NO PHI, that are specific to the repo/project
 ###################################################################
-!simclins.csv
+!*.csv
+!*.txt
 ###################################################################
 .Rproj.user
