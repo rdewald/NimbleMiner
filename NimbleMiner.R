@@ -21,7 +21,7 @@ require(devtools)
 devtools::install_github("mukul13/rword2vec")
 devtools::install_github("bmschmidt/wordVectors")
 # necessary until nimbleMine is a public repository
-require("nimbleMine")
+require(nimbleMine)
 
 # User interface
 ui <- fluidPage(
